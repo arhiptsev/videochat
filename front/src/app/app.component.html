@@ -1,0 +1,29 @@
+<div id="container">
+  <app-header (toogle)="toogleBar()"></app-header>
+  <div class="main-wrap">
+    <mat-sidenav-container>
+      <mat-sidenav
+        appSidebarSwipe
+        class="sidebar"
+        mode="side"
+        [(opened)]="showBar"
+      >
+        <div class="nav-container">
+          <mat-nav-list>
+            <a mat-list-item (click)="goRegistration()" *ngIf="!isAuth">
+              Регистрация
+            </a>
+            <a mat-list-item routerLink="user/profile" *ngIf="isAuth">
+              Профиль
+            </a>
+            <a mat-list-item routerLink="simple-peer">Видеочат</a>
+            <a mat-list-item (click)="logout()" *ngIf="isAuth">Выйти</a>
+          </mat-nav-list>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

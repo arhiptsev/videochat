@@ -1,0 +1,41 @@
+.chat-container {
+  display: flex;
+  height: 100%;
+
+  .online-users {
+    &-header {
+      display: flex;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #abbec8;
+
+      h3 {
+        font-size: 20px;
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+    width: 250px;
+    border-right: 1px solid #cccccc;
+  }
+
+  .video-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    video {
+      width: 100%;
+    }
+  }
+  .local-video {
+    width: 250px;
+    z-index: 3000;
+    // position: absolute;
+    position: absolute;
+    bottom: 100px;
+    right: 100px;
+  }
+}

@@ -1,0 +1,26 @@
+name: deployment front
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - front/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Build the Docker image
+        run: docker build -t arhitsev/videochat:front-latest ./front
+      - name: Push the Docker image to the registry
+        run: docker push arhitsev/videochat:front-latest
+      - name: Run deploy script
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_NAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: ${{ secrets.SSH_DEPLOY_SCRIPT_FRONT }}

@@ -1,0 +1,14 @@
+.video-container {
+    display: flex;
+    justify-content: space-between;
+
+    .video-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40%;
+        video {
+            width: 100%;
+        }
+    }
+}

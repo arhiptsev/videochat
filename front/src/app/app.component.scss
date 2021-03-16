@@ -1,0 +1,23 @@
+#container {
+  display: flex;
+  height: 100%;
+  .main-wrap {
+    margin-top: 60px;
+    mat-sidenav-container {
+      .sidebar {
+        background-color: #6ab1c7;
+        .nav-container {
+          height: 100%;
+          width: 200px;
+          .mat-list-item {
+            color: azure;
+          }
+        }
+      }
+      height: 100%;
+      .content {
+        padding: 20px;
+      }
+    }
+  }
+}

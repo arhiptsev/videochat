@@ -1,0 +1,46 @@
+.call-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 7px;
+  width: 450px;
+  min-height: 300px;
+  background-color: #CCC;
+
+  .video-off-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .remote-video {
+    border-radius: 7px;
+    width: 100%;
+  }
+  .toolbar-wrap {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .toolbar {
+      & > *:not(:first-child) {
+        margin-left: 20px;
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0px 0px 7px 7px;
+      width: 100%;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+::ng-deep .volume-container {
+  overflow: hidden !important;
+  min-width: 0px !important;
+  .volume {
+    z-index: 1000;
+  }
+}

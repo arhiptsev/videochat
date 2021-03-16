@@ -1,0 +1,15 @@
+.container {
+    width: 200px;
+
+    .progress {
+        margin: 20px 0;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        button:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+}

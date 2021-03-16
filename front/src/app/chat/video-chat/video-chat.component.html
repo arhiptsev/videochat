@@ -1,0 +1,36 @@
+<div class="video-container">
+  <mat-card class="video-card local-video">
+    <mat-card-header>
+      <mat-card-title>Локальная камера</mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="showLocalVideo && localStream">
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-button (click)="toogleLocalVideo()">
+        {{ showLocalVideo ? "Скрыть" : "Показать" }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="video-card local-video" cdkDrag>
+    <mat-card-header>
+      <mat-card-title>Удаленная камера</mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="showRemoteVideo && remoteStream" >
+      <video playsinline autoplay [srcObject]="remoteStream"></video>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-button (click)="toogleRemoteVideo()">
+        {{ showRemoteVideo ? "Скрыть" : "Показать" }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div>
+  <mat-nav-list>
+    <a *ngFor="let item of clients" mat-list-item (click)="createOffer(item)">
+      {{ item }}
+    </a>
+  </mat-nav-list>
+</div>

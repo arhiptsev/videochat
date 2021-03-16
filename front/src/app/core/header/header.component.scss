@@ -1,0 +1,31 @@
+.header {
+  height: 60px;
+  padding: 0 10px;
+  width: 100%;
+  background: #215b7a;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+
+  .burger {
+    color: #83aabe;
+    font-weight: 400;
+  }
+
+  .toogle {
+    button {
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+  }
+
+  .auth {
+    display: flex;
+    align-items: center;
+  }
+}

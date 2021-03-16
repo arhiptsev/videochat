@@ -1,0 +1,12 @@
+<div class="userList">
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let client of users"
+      mat-list-item
+      (click)="onCall(client)"
+    >
+      <mat-icon mat-list-icon>person</mat-icon>
+      {{ client.user.username }}
+    </mat-list-item>
+  </mat-nav-list>
+</div>
