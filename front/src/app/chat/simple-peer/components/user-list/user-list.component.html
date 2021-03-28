@@ -1,12 +1,13 @@
-<div class="userList">
-  <mat-nav-list>
-    <mat-list-item
+<div class="user-list-container">
+  <div class="userList">
+    <div
+      class="user-item"
       *ngFor="let client of users"
       mat-list-item
       (click)="onCall(client)"
     >
-      <mat-icon mat-list-icon>person</mat-icon>
-      {{ client.user.username }}
-    </mat-list-item>
-  </mat-nav-list>
+      <svg-icon class="user-item-icon" key="account-circle"></svg-icon>
+      <!-- {{ client.user.username }} -->
+    </div>
+  </div>
 </div>

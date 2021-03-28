@@ -1,5 +1,47 @@
-.userList {
-    .mat-list-item:not(:last-child) {
-        border-bottom: 1px solid #cccccc;
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .userList {
+    display: flex;
+    min-width: 30%;
+    padding: 7px;
+    border-radius: 35px;
+    background-color: #99bcd6;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    .online-users {
+      width: 250px;
+      border-right: 1px solid #cccccc;
     }
+
+    .user-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #e3f2fa;
+      width: 60px;
+      height: 60px;
+      -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+      border: 1px solid rgb(212, 211, 211);
+
+      &:not(:first-child) {
+        margin-left: 25px;
+      }
+
+      &-icon {
+        fill: #1b5f8c;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .mat-list-item:not(:last-child) {
+      border-bottom: 1px solid #cccccc;
+    }
+  }
 }

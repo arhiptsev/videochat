@@ -14,7 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ChatModule } from './chat/chat.module';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 
-import * as icons  from './svg/index';
+import * as icons  from './icons';
 import { SidebarSwipeDirective } from './common/sidebar-swipe.diretive';
 
 

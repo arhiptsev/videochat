@@ -1,8 +1,9 @@
 #container {
   display: flex;
   height: 100%;
+  padding-top: 60px;
   .main-wrap {
-    margin-top: 60px;
+    width: 100%;
     mat-sidenav-container {
       .sidebar {
         background-color: #6ab1c7;

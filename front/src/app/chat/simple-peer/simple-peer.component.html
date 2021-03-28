@@ -1,10 +1,5 @@
 <div class="chat-container">
-  <div class="online-users">
-    <div class="online-users-header">
-      <h3>Пользователи онлайн</h3>
-    </div>
     <app-user-list (call)="callUser($event)" [users]="clients"></app-user-list>
-  </div>
 
   <mat-card class="video-card local-video" cdkDrag>
     <mat-card-header>
