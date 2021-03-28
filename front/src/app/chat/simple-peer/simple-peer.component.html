@@ -1,24 +1,9 @@
 <div class="chat-container">
     <app-user-list (call)="callUser($event)" [users]="clients"></app-user-list>
-
-  <mat-card class="video-card local-video" cdkDrag>
-    <mat-card-header>
-      <mat-slide-toggle
-        [checked]="showLocalVideo"
-        (toggleChange)="toogleLocalVideo()"
-        color="primary"
-      ></mat-slide-toggle>
-      <mat-card-title>Локальная камера</mat-card-title>
-    </mat-card-header>
-    <mat-card-content *ngIf="showLocalVideo && localStream">
-      <video playsinline autoplay [srcObject]="localStream"></video>
-    </mat-card-content>
-    <mat-card-actions class="actions"> </mat-card-actions>
-  </mat-card>
-
   <app-remote-video
     *ngFor="let call of activeCalls"
     [remoteStream]="call.remoteStream"
+    [localStream]="localStream"
     (cancelCall)="cancelCall(call)"
   ></app-remote-video>
 </div>

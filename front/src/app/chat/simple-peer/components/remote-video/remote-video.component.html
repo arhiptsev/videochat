@@ -1,38 +1,51 @@
-<div cdkDrag>
-  <div class="call-window">
-    <video
-      *ngIf="showVideo && remoteStream"
-      class="remote-video"
-      playsinline
-      autoplay
-      [srcObject]="remoteStream"
-      [volume]="remoteVolumeFloat"
-    ></video>
+<div class="call-window" cdkDrag [cdkDragDisabled]="isMobile">
+  <video
+    *ngIf="showVideo && remoteStream"
+    class="remote-video"
+    playsinline
+    autoplay
+    [srcObject]="remoteStream"
+    [volume]="remoteVolumeFloat"
+  ></video>
 
-    <svg-icon
-      class="video-off-icon"
-      *ngIf="!showVideo || !remoteStream"
-      key="video-off"
-    ></svg-icon>
+  <video
+    *ngIf="!isMobile && localStream"
+    class="local-video"
+    playsinline
+    autoplay
+    [srcObject]="localStream"
+    [volume]="0"
+  ></video>
 
-    <div class="toolbar-wrap">
-      <div class="toolbar">
-        <mat-slide-toggle
-          ariaLabel="Видео"
-          [checked]="showVideo"
-          (toggleChange)="toogleVideo()"
-          color="primary"
-        ></mat-slide-toggle>
-        <button mat-icon-button color="warn" (click)="onCancelCall()">
-          <mat-icon>call_end</mat-icon>
-        </button>
-        <button mat-icon-button [matMenuTriggerFor]="menu" color="warn">
-          <mat-icon>volume_up</mat-icon>
-        </button>
-        <mat-menu  class="volume-container" #menu="matMenu">
-          <mat-slider [(value)]="remoteVolume"  class="volume" [vertical]="true" [thumbLabel]="true"> </mat-slider>
-        </mat-menu>
-      </div>
+  <svg-icon
+    class="video-off-icon"
+    *ngIf="!showVideo || !remoteStream"
+    key="video-off"
+  ></svg-icon>
+
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <mat-slide-toggle
+        ariaLabel="Видео"
+        [checked]="showVideo"
+        (toggleChange)="toogleVideo()"
+        color="primary"
+      ></mat-slide-toggle>
+      <button mat-icon-button color="warn" (click)="onCancelCall()">
+        <mat-icon>call_end</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu" color="warn">
+        <mat-icon>volume_up</mat-icon>
+      </button>
+      <mat-menu class="volume-container" #menu="matMenu">
+        <mat-slider
+          [(value)]="remoteVolume"
+          class="volume"
+          [vertical]="true"
+          [thumbLabel]="true"
+        >
+        </mat-slider>
+      </mat-menu>
     </div>
   </div>
 </div>
