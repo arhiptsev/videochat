@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
   @Output() public call = new EventEmitter<ChatUser>();
 
   ngOnInit(): void {
+    
   }
 
   public onCall(user: ChatUser): void {

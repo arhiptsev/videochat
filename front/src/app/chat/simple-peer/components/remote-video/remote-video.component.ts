@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MediaService } from 'src/app/common/media.service';
 
 @Component({
   selector: 'app-remote-video',
@@ -7,7 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RemoteVideoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private mediaService: MediaService
+  ) { }
 
   @Input() public remoteStream;
   @Input() public localStream;
@@ -15,7 +18,7 @@ export class RemoteVideoComponent implements OnInit {
 
   public remoteVolume = 0.7;
   public get remoteVolumeFloat(): number { return this.remoteVolume / 100; }
-  public get isMobile(): boolean { return window.matchMedia("(max-width: 800px)").matches; }
+  public get isMobile(): boolean { return this.mediaService.isMobile(); }
 
 
   @Output() public cancelCall = new EventEmitter<void>();

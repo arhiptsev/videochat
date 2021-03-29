@@ -1,9 +1,16 @@
-:host {
-    .auth-reg-container {
-        width: 50%;
-        margin: 0 auto;
-    }
-::ng-deep .mat-tab-label {
+@import "../../../styles.scss";
+
+.auth-reg-container {
+  @include respond-to(phones) {
     width: 100%;
-}
+  }
+
+  @include respond-to(desktop) {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  ::ng-deep .mat-tab-label {
+    width: 100%;
+  }
 }

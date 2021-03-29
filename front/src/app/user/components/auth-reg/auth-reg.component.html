@@ -1,9 +1,15 @@
-<mat-tab-group mat-align-tabs="center" #tabs [selectedIndex]="selectedTab">
-    <mat-tab label="Вход">
-        <app-authentication></app-authentication>
-    </mat-tab>
-    <mat-tab label="Регистрация">
-        <app-registration (onSuccessRegistration)="onSuccessRegistration()"></app-registration>
-    </mat-tab>
-  </mat-tab-group>
-  
+<mat-tab-group
+  class="auth-reg"
+  mat-align-tabs="center"
+  #tabs
+  [selectedIndex]="selectedTab"
+>
+  <mat-tab label="Вход">
+    <app-authentication></app-authentication>
+  </mat-tab>
+  <mat-tab label="Регистрация">
+    <app-registration
+      (onSuccessRegistration)="onSuccessRegistration()"
+    ></app-registration>
+  </mat-tab>
+</mat-tab-group>

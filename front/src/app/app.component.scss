@@ -1,10 +1,12 @@
 #container {
   display: flex;
   height: 100%;
-  padding-top: 60px;
   .main-wrap {
+    margin-top: 60px;
+    display: flex;
     width: 100%;
     mat-sidenav-container {
+      width: 100%;
       .sidebar {
         background-color: #6ab1c7;
         .nav-container {
@@ -15,7 +17,6 @@
           }
         }
       }
-      height: 100%;
       .content {
         padding: 20px;
       }

@@ -1,3 +1,9 @@
-.mat-tab-labels {
+@import "../../../../styles.scss";
+
+.auth-reg {
+    width: 100%;
+
+  .mat-tab-labels {
     height: 300px;
+  }
 }

@@ -5,7 +5,7 @@
       <mat-sidenav
         appSidebarSwipe
         class="sidebar"
-        mode="side"
+        [mode]="isMobile ? 'over' : 'side'"
         [(opened)]="showBar"
       >
         <div class="nav-container">

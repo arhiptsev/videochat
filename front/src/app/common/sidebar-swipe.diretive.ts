@@ -2,6 +2,7 @@ import { Directive } from '@angular/core';
 import { combineLatest, fromEvent } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { repeat, take } from 'rxjs/operators';
 
 @UntilDestroy()
 @Directive({
@@ -14,7 +15,11 @@ export class SidebarSwipeDirective {
 
   ngAfterViewInit() {
     combineLatest([this.startOnTouch(), this.endOnTouch()])
-      .pipe(untilDestroyed(this))
+      .pipe(
+        take(1),
+        repeat(),
+        untilDestroyed(this)
+      )
       .subscribe(([start, end]) => {
         const difference = end.changedTouches[0].clientX - start.touches[0].clientX;
         if (Math.abs(difference) < 70) { return; }
