@@ -24,6 +24,11 @@ export interface ChatUser {
   socket: WebSocket;
 }
 
+export interface Room {
+  user: Pick<User, 'username' | 'id'>;
+  socket: WebSocket;
+}
+
 export interface ChatUserForClient {
   clientId: string;
   user: Pick<User, 'username'>;
@@ -47,6 +52,9 @@ export class VideoGateway implements OnGatewayConnection, OnGatewayDisconnect {
   server: Server;
 
   private clients = new Map<string, ChatUser>();
+
+  private rooms = new Map<string, ChatUser>();
+
 
   public async handleConnection(
     socket: WebSocket,
@@ -87,9 +95,12 @@ export class VideoGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   public handleDisconnect(client: WebSocket) {
-    const [id] = this.getChatUserBySocket(client);
-    this.clients.delete(id);
-    this.sendOnlineUsers();
+    try {
+      const [id] = this.getChatUserBySocket(client);
+      this.clients.delete(id);
+      this.sendOnlineUsers();
+    }
+    catch { }
   }
 
   @SubscribeMessage('answerOnCall')
